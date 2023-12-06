@@ -11,7 +11,7 @@ return {
 
         keymap('n', '<leader>pf', builtin.find_files, opts)
         -- keymap('n', '<leader>b', builtin.buffers, opts)
-        keymap('n', '<C-p>', builtin.git_files, opts)
+        keymap('n', '<A-p>', builtin.git_files, opts)
         keymap('n', '<leader>ps', function()
             builtin.grep_string({ search = vim.fn.input("Grep > ") })
         end)

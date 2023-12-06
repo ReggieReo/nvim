@@ -13,7 +13,7 @@ lsp_zero.on_attach(function(client, bufnr)
     vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
     vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
     vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
-    vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+    vim.keymap.set("i", "<A-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
 
 require('mason').setup({})
@@ -42,6 +42,6 @@ cmp.setup({
         ['<S-Tab>'] = cmp.mapping.select_prev_item(cmp_select),
         ['<Tab>'] = cmp.mapping.select_next_item(cmp_select),
         ['<Enter>'] = cmp.mapping.confirm({ select = true }),
-        ['<C-Space>'] = cmp.mapping.complete(),
+        ['<A-Space>'] = cmp.mapping.complete(),
     }),
 })
