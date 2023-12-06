@@ -10,6 +10,11 @@ vim.keymap.set("n", "<A-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
+-- use clt to move between split
+vim.keymap.set("n", "<C-h>", [[<C-\><C-n><C-w>h]])
+vim.keymap.set("n", "<C-j>", [[<C-\><C-n><C-w>j]])
+vim.keymap.set("n", "<C-k>", [[<C-\><C-n><C-w>k]])
+vim.keymap.set("n", "<C-l>", [[<C-\><C-n><C-w>l]])
 
 -- greatest remap ever
 vim.keymap.set("x", "<leader>p", [["_dP]])
