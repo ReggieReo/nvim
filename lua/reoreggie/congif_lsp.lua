@@ -48,4 +48,3 @@ cmp.setup({
 })
 
 -- set up comment
-require('Comment').setup()
