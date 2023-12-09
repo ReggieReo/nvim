@@ -1,4 +1,5 @@
 vim.g.mapleader = " "
+--set up lsp
 local lsp_zero = require('lsp-zero')
 
 lsp_zero.on_attach(function(client, bufnr)
@@ -45,3 +46,6 @@ cmp.setup({
         ['<A-Space>'] = cmp.mapping.complete(),
     }),
 })
+
+-- set up comment
+require('Comment').setup()
