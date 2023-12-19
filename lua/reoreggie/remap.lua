@@ -30,7 +30,6 @@ vim.keymap.set("i", "jk", "<Esc>")
 
 
 vim.keymap.set("n", "Q", "<nop>")
-vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
@@ -46,3 +45,10 @@ vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
 
+vim.keymap.set("n", "<leader>ge", [[:lua <<EOF
+local old_pos = vim.fn.getpos('.')
+vim.cmd('GoIfErr')
+vim.fn.setpos('.', old_pos)
+vim.cmd('normal! j')
+EOF
+]], { noremap = true, silent = true })
