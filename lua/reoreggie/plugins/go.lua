@@ -8,10 +8,12 @@ return {
     config = function()
         require("mason").setup()
         require("mason-lspconfig").setup()
-        require("go").setup({ lsp_cfg = false })
+        require("go").setup({ lsp_cfg = false, lsp_keymaps = true })
         local cfg = require 'go.lsp'.config() -- config() return the go.nvim gopls setup
 
         require('lspconfig').gopls.setup(cfg)
+        vim.g.mapleader = " "
+        vim.keymap.set("n", "<leader>gr", "<cmd>GoRun -F<CR>", { silent = true })
     end,
     event = { "CmdlineEnter" },
     ft = { "go", 'gomod' },
