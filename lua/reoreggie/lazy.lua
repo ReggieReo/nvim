@@ -12,4 +12,4 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("reoreggie.plugins")
-require("reoreggie.congif_lsp")
+-- require("reoreggie.congif_lsp")
