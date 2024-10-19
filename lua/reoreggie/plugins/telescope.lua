@@ -8,7 +8,26 @@ return {
     },
 
     config = function()
-        require('telescope').setup({})
+        local focus_preview = function(prompt_bufnr)
+            local action_state = require("telescope.actions.state")
+            local picker = action_state.get_current_picker(prompt_bufnr)
+            local prompt_win = picker.prompt_win
+            local previewer = picker.previewer
+            local winid = previewer.state.winid
+            local bufnr = previewer.state.bufnr
+            vim.keymap.set("n", "<M-1>", function()
+                vim.cmd(string.format("noautocmd lua vim.api.nvim_set_current_win(%s)", prompt_win))
+            end, { buffer = bufnr })
+            vim.cmd(string.format("noautocmd lua vim.api.nvim_set_current_win(%s)", winid))
+            -- api.nvim_set_current_win(winid)
+        end
+        require('telescope').setup({
+            mappings = {
+                n = {
+                    ["<M-1>"] = focus_preview,
+                }
+            }
+        })
 
         local builtin = require('telescope.builtin')
         vim.keymap.set('n', '<leader>pf', builtin.find_files, {})

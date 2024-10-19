@@ -35,7 +35,6 @@ require("lazy").setup({
 })
 
 
-
 local augroup = vim.api.nvim_create_augroup
 local ThePrimeagenGroup = augroup('ThePrimeagen', {})
 
@@ -46,11 +45,6 @@ function R(name)
     require("plenary.reload").reload_module(name)
 end
 
-vim.filetype.add({
-    extension = {
-        templ = 'templ',
-    }
-})
 
 autocmd('TextYankPost', {
     group = yank_group,
